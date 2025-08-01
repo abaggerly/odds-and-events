@@ -28,6 +28,7 @@ function render() {
    
     const appDiv = document.createElement('div');
     appDiv.classList.add('app');
+    appDiv.classList.add("text-center");
 
    
     function renderInputForm() {
