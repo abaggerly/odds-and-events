@@ -32,12 +32,16 @@ function render() {
    
     function renderInputForm() {
         const form = document.createElement('form');
+        form.classList.add("form-inline");
         form.innerHTML = `
-            <input type="number" id="numberInput" placeholder="Enter a number">
-            <button type="submit">Add number</button>
-            <button type="button" id="sortOneBtn">Sort 1</button>
-            <button type="button" id="sortAllBtn">Sort All</button>
-            <button type="button" id="generateRandomBtn">Generate Random</button> <!-- Extension: Generate Random --> 
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="number" id="numberInput" class="form-control-sm" placeholder="Enter a number" required>
+        
+            <button type="submit" class="btn btn-outline-secondary btn-sm  mb-2">Add number</button>
+            <button type="button" id="sortOneBtn" class="btn btn-outline-primary btn-sm mb-2">Sort 1</button>
+            <button type="button" class="btn btn-outline-success btn-sm mb-2"id="sortAllBtn">Sort All</button>
+            <button type="button" id="generateRandomBtn" class="btn btn-outline-danger btn-sm mb-2">Generate Random</button> <!-- Extension: Generate Random --> 
+  </div>
         `;
 
         form.addEventListener('submit', (e) => {
@@ -91,10 +95,12 @@ function render() {
     function renderNumberDisplay(title, numbers) {
         const div = document.createElement('div');
         div.classList.add('number-display');
-        div.innerHTML = `<h2>${title}</h2>`;
+        div.innerHTML = `<h2 class="text-secondary"><b><u>${title}</u></b></h2>`;
         const ul = document.createElement('ul');
+        ul.classList.add("list-group");
         numbers.forEach((num) => {
             const li = document.createElement('li');
+            li.classList.add("list-group-item");
             li.textContent = num;
             ul.appendChild(li);
         });
